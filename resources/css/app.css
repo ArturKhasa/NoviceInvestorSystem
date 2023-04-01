@@ -1,0 +1,10 @@
+
+/* TAILWIND */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* LOADER ANIMATIONS */
+@import './loaderAnimations.css';
+@import './logo.css';
+@import './price.css';
