@@ -8,22 +8,22 @@
 
     <!-- ADD CRYPTO FORM SCREEN -->
      <ModalWindow :showModal="showAddForm">
-        <AddCryptoForm @close-form="disableAddCryptoForm" :crypto="cryptoToAdd"></AddCryptoForm>   
+        <AddCryptoForm @close-form="disableAddCryptoForm" :crypto="cryptoToAdd"></AddCryptoForm>
     </ModalWindow>
 
-    <!-- EDIT CRYPTO AMOUNT FORM SCREEN --> 
+    <!-- EDIT CRYPTO AMOUNT FORM SCREEN -->
     <ModalWindow :showModal="showEditForm">
         <EditCryptoForm @close-edit-form="disableEditCryptoForm" :crypto="cryptoToEdit"></EditCryptoForm>
     </ModalWindow>
 
-    <!-- MAIN CONTENT --> 
+    <!-- MAIN CONTENT -->
     <div class="flex w-full">
         <div class="flex bg-white w-11/12 mx-auto md:w-11/12 lg:w-10/12 2xl:w-8/12">
             <div class="flex flex-col w-full mx-auto">
-                
+
                 <!-- CRYPTO CONTENT -->
                 <div class="flex flex-wrap w-full mx-auto mt-8">
-                    
+
                     <!-- CRYPTO SYMBOL -->
                     <div class="flex w-8/12 sm:order-1 sm:w-auto">
                         <img class="w-12 h-12 sm:w-14 sm:h-14" :src="coin.image">
@@ -35,8 +35,8 @@
 
                     <!-- ADD OR DELETE BUTTON -->
                     <div class="flex justify-end ml-auto w-2/12 sm:order-4 sm:ml-0 sm:w-auto">
-                        <DeleteCryptoBtn v-if="coin.inPortfolio" :cg_id="coin.cg_id"></DeleteCryptoBtn> 
-                        <AddCryptoBtn v-else @open-add-form="activateAddCryptoForm" :crypto="coin"></AddCryptoBtn> 
+                        <DeleteCryptoBtn v-if="coin.inPortfolio" :cg_id="coin.cg_id"></DeleteCryptoBtn>
+                        <AddCryptoBtn v-else @open-add-form="activateAddCryptoForm" :crypto="coin"></AddCryptoBtn>
                     </div>
 
                     <!-- RANK -->
@@ -48,10 +48,10 @@
                      <!-- PRICE -->
                     <div class="flex justify-between items-baseline w-full border-gray-300 border-t-2 py-2 sm:order-3 sm:mr-5 sm:w-auto sm:ml-auto sm:border-none sm:py-0 sm:justify-start">
                         <p class="text-xl">Price: </p>
-                        <p class="text-lg up font-black sm:text-2xl sm:ml-4">${{ coin.price }}</p>    
-                    </div> 
+                        <p class="text-lg up font-black sm:text-2xl sm:ml-4">${{ coin.price }}</p>
+                    </div>
 
-                    <!-- AMOUNT OWNED & WORTH --> 
+                    <!-- AMOUNT OWNED & WORTH -->
                     <div class="flex flex-wrap w-full border-gray-300 border-t-2 py-2 sm:order-5 sm:border-t-0 sm:py-0 sm:mt-4 sm:justify-between lg:border-b-2 lg:py-2">
                         <div class="flex items-baseline justify-between w-full sm:justify-start sm:w-auto">
                             <p class="text-base">Amount: </p>
@@ -61,7 +61,7 @@
                                     <p>{{ coin.symbol }}</p>
                                     <EditCryptoBtn @edit-crypto="activateEditCryptoForm(coin)"></EditCryptoBtn>
                                 </div>
-                                
+
                                 <div v-else>
                                     <p>-</p>
                                 </div>
@@ -85,36 +85,36 @@
                      <!-- 24H HIGH & LOW -->
                     <div class="flex flex-wrap justify-between items-baseline w-full border-gray-300 border-t-2 py-2 sm:order-6 sm:w-6/12 sm:mb-auto sm:mt-2 lg:border-t-0 lg:border-r-2 xl:w-2/12">
                         <div class="flex justify-between items-baseline w-full sm:justify-start">
-                            <p class="text-base">24h low: </p>
+                            <p class="text-base">24ч min: </p>
                             <p class="text-lg down font-black ml-2">${{ coin.low_24h }}</p>
                             <p class="down text-2xl ml-1"><font-awesome-icon :icon="['fas', 'angle-down']" /></p>
                         </div>
 
                         <div class="flex justify-between items-baseline w-full sm:justify-start">
-                            <p class="text-base">24h high: </p>
+                            <p class="text-base">24ч max: </p>
                             <p class="text-lg up font-black ml-2">${{ coin.high_24h }}</p>
                             <p class="up text-2xl ml-1"><font-awesome-icon :icon="['fas', 'angle-up']" /></p>
                         </div>
                     </div>
 
-                    <!-- PRICE CHANGES --> 
+                    <!-- PRICE CHANGES -->
                     <div class="flex justify-between items-baseline w-full border-gray-300 border-t-2 py-2 sm:order-7 sm:flex-col sm:mt-2 sm:w-6/12 sm:ml-auto sm:justify-end lg:flex-row lg:border-t-0 lg:justify-end xl:w-5/12 xl:justify-around xl:border-r-2">
                         <div class="flex flex-col items-baseline sm:flex-row sm:justify-end lg:flex-col lg:mx-auto xl:mx-0 xl:items-start">
-                            <p class="text-base">Change 1h:</p>
+                            <p class="text-base">Изменение 1ч: </p>
                             <p :class="[(Math.sign(coin.price_change_percentage_1h) >= 0)? 'up':'down']" class="font-black text-lg sm:ml-2 lg:ml-0">
                                 {{ coin.price_change_percentage_1h }}%
                             </p>
                         </div>
 
                         <div class="flex flex-col items-baseline sm:flex-row sm:justify-end lg:flex-col lg:mr-auto xl:mx-0">
-                            <p class="text-base">Change 24h:</p>
+                            <p class="text-base">Изменение 24ч: </p>
                             <p :class="[(Math.sign(coin.price_change_percentage_24h) >= 0)? 'up':'down']" class="font-black text-lg sm:ml-2 lg:ml-0">
                                 {{ coin.price_change_percentage_24h }}%
                             </p>
                         </div>
 
                         <div class="flex flex-col items-baseline sm:flex-row sm:justify-end lg:flex-col">
-                            <p class="text-base">Change 7d:</p>
+                            <p class="text-base">Изменение 7д: </p>
                             <p :class="[(Math.sign(coin.price_change_percentage_7d) >= 0)? 'up':'down']" class="font-black text-lg sm:ml-2 lg:ml-0">
                                 {{ coin.price_change_percentage_7d }}%
                             </p>
@@ -125,7 +125,7 @@
                     <div class="flex flex-wrap w-full border-gray-300 border-t-2 py-2 sm:order-8 sm:mt-2 xl:border-t-0 xl:w-5/12 xl:justify-end">
                         <div class="flex flex-col w-full sm:w-6/12 sm:justify-between xl:w-auto xl:mx-auto">
                             <div class="flex justify-between items-baseline sm:justify-start">
-                                <p class="text-base">Atl: </p>
+                                <p class="text-base">Минимальная цена за все время: </p>
                                 <p class="ml-1 text-lg font-black sm:ml-2">${{ coin.atl }}</p>
                             </div>
 
@@ -137,7 +137,7 @@
 
                         <div class="flex flex-col w-full order-last sm:w-6/12 xl:w-auto">
                             <div class="flex justify-between items-baseline sm:justify-end">
-                                <p class="text-base">Ath: </p>
+                                <p class="text-base">Максимальная цена за все время: </p>
                                 <p class="ml-1 text-lg font-black sm:ml-2">${{ coin.ath }}</p>
                             </div>
 
@@ -238,7 +238,7 @@ export default {
         });
 
         const options = {
-            price_change_percentage_1h: true, 
+            price_change_percentage_1h: true,
             price_change_percentage_24h: true,
             price_change_percentage_7d: true,
             ath: true,
@@ -263,18 +263,18 @@ export default {
         const setCoin = (data) => {
             let cryptoObj = {};
             cryptoObj[cryptoCGid] = props.crypto;
-            coin.value = joinCryptoData(cryptoObj, data[0], options);  
+            coin.value = joinCryptoData(cryptoObj, data[0], options);
         }
-          
+
         const fetchCryptoData = async (afterFetch) => {
             try {
                 status.value = 'fetching';
                 showLoading.value = true;
-                
+
                 const { data } = await getCryptoById(cryptoCGid)
                 status.value = 'ready'
                 showLoading.value = false;
-                
+
                 afterFetch(data)
             }
             catch (ex) {
@@ -315,7 +315,7 @@ export default {
         })
 
         watch(() => props.crypto, () => {
-            
+
             disableAddCryptoForm();
             disableEditCryptoForm();
 
