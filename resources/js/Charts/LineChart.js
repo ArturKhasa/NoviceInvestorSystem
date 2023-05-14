@@ -1,4 +1,4 @@
-import {  
+import {
     Chart,
     CategoryScale,
     LinearScale,
@@ -9,16 +9,16 @@ import {
    } from 'chart.js'
 
 Chart.register(
-    CategoryScale, 
-    LinearScale, 
-    LineElement, 
-    LineController, 
+    CategoryScale,
+    LinearScale,
+    LineElement,
+    LineController,
     PointElement,
     Tooltip);
 
 const generateLineChartConf = (data) => {
     const lineData = {
-        labels: ['7d', '6d', '5d', '4d', '3d', '2d', '1d', 'today'],
+        labels: ['7Д', '6Д', '5Д', '4Д', '3Д', '2Д', '1Д', 'Сегодня'],
         datasets: [{
             data: data,
             fill: false,
@@ -26,10 +26,10 @@ const generateLineChartConf = (data) => {
             tension: 0.1,
         }]
     };
-    
+
     const lineConf = {
         type: 'line',
-        data: lineData, 
+        data: lineData,
         options: {
             legend: {
                 display: false

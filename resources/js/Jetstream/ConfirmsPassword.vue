@@ -47,13 +47,13 @@
 
         props: {
             title: {
-                default: 'Confirm Password',
+                default: 'Подтвердить пароль',
             },
             content: {
-                default: 'For your security, please confirm your password to continue.',
+                default: 'Подтвердите свой пароль',
             },
             button: {
-                default: 'Confirm',
+                default: 'Подтвердить',
             }
         },
 

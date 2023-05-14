@@ -130,7 +130,7 @@
                             </div>
 
                             <div class="flex justify-between items-baseline sm:justify-start">
-                                <p class="text-base">Atl Date: </p>
+                                <p class="text-base">Дата: </p>
                                 <p class="ml-1 text-lg font-black sm:ml-2">{{ coin.atl_date }}</p>
                             </div>
                         </div>
@@ -142,7 +142,7 @@
                             </div>
 
                             <div class="flex justify-between items-baseline sm:justify-end">
-                                <p class="text-base">Ath Date: </p>
+                                <p class="text-base">Дата: </p>
                                 <p class="ml-1 text-lg font-black sm:ml-2">{{ coin.ath_date }}</p>
                             </div>
                         </div>
@@ -151,12 +151,12 @@
                     <!-- CIRCULATING SUPPLY -->
                     <div class="flex flex-wrap items-baseline justify-between border-gray-300 border-t-2 w-full py-2 sm:order-9 sm:mt-2">
                         <div class="flex items-baseline justify-between w-full sm:justify-start sm:w-6/12">
-                            <p class="text-base">Circulating Supply: </p>
+                            <p class="text-base">Общий капитал валюты: </p>
                             <p class="ml-1 text-lg font-black sm:ml-2">{{ coin.circulating_supply }}</p>
                         </div>
 
                         <div class="flex items-baseline justify-between w-full sm:justify-end sm:w-6/12">
-                            <p class="text-base">Max Supply: </p>
+                            <p class="text-base">Макимальный: </p>
                             <p class="ml-1 text-lg font-black sm:ml-2">{{ coin.max_supply }}</p>
                         </div>
                     </div>
@@ -166,7 +166,7 @@
                 <div class="flex flex-col mt-6">
                     <div>
                         <h2 class="sm:text-lg font-black lg:text-2xl">
-                            7 Days Price Chart
+                            7 дней
                         </h2>
                     </div>
                     <canvas id="lineChart" class="mt-3"></canvas>

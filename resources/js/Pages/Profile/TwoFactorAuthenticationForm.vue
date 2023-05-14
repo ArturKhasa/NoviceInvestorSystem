@@ -1,20 +1,20 @@
 <template>
     <jet-action-section>
         <template #title>
-            Two Factor Authentication
+            Двухфакторная аутентификация
         </template>
 
         <template #description>
-            Add additional security to your account using two factor authentication.
+            Добавьте дополнительную безопасность своей учетной записи, используя двухфакторную аутентификацию.
         </template>
 
         <template #content>
             <h3 class="text-lg font-medium text-gray-900" v-if="twoFactorEnabled">
-                You have enabled two factor authentication.
+                Вы включили двухфакторную аутентификацию.
             </h3>
 
             <h3 class="text-lg font-medium text-gray-900" v-else>
-                You have not enabled two factor authentication.
+                Вы не включили двухфакторную аутентификацию.
             </h3>
 
             <div class="mt-3 max-w-xl text-sm text-gray-600">
@@ -27,8 +27,7 @@
                 <div v-if="qrCode">
                     <div class="mt-4 max-w-xl text-sm text-gray-600">
                         <p class="font-semibold">
-                            Two factor authentication is now enabled. Scan the following QR code using your phone's authenticator application.
-                        </p>
+                            Когда двухфакторная аутентификация включена, вам будет предложено ввести безопасный случайный токен во время аутентификации. Вы можете получить этот токен из приложения Google Authenticator вашего телефона.                        </p>
                     </div>
 
                     <div class="mt-4 dark:p-4 dark:w-56 dark:bg-white" v-html="qrCode">
@@ -38,8 +37,7 @@
                 <div v-if="recoveryCodes.length > 0">
                     <div class="mt-4 max-w-xl text-sm text-gray-600">
                         <p class="font-semibold">
-                            Store these recovery codes in a secure password manager. They can be used to recover access to your account if your two factor authentication device is lost.
-                        </p>
+                            Сохраните эти коды восстановления в безопасном менеджере паролей. Их можно использовать для восстановления доступа к вашей учетной записи, если ваше устройство двухфакторной аутентификации потеряно.                        </p>
                     </div>
 
                     <div class="grid gap-1 max-w-xl mt-4 px-4 py-4 font-mono text-sm bg-gray-100 rounded-lg">
@@ -54,7 +52,7 @@
                 <div v-if="! twoFactorEnabled">
                     <jet-confirms-password @confirmed="enableTwoFactorAuthentication">
                         <jet-button type="button" :class="{ 'opacity-25': enabling }" :disabled="enabling">
-                            Enable
+                            Использовать
                         </jet-button>
                     </jet-confirms-password>
                 </div>
@@ -63,13 +61,13 @@
                     <jet-confirms-password @confirmed="regenerateRecoveryCodes">
                         <jet-secondary-button class="mr-3"
                                         v-if="recoveryCodes.length > 0">
-                            Regenerate Recovery Codes
+                            Получить коды восстановления
                         </jet-secondary-button>
                     </jet-confirms-password>
 
                     <jet-confirms-password @confirmed="showRecoveryCodes">
                         <jet-secondary-button class="mr-3" v-if="recoveryCodes.length === 0">
-                            Show Recovery Codes
+                            Показать коды восстановления
                         </jet-secondary-button>
                     </jet-confirms-password>
 
@@ -77,7 +75,7 @@
                         <jet-danger-button
                                         :class="{ 'opacity-25': disabling }"
                                         :disabled="disabling">
-                            Disable
+                            Отключить
                         </jet-danger-button>
                     </jet-confirms-password>
                 </div>
