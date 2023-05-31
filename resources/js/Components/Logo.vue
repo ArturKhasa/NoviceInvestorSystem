@@ -1,6 +1,6 @@
 <template>
         <Link :href="route('portfolioCryptos.show')" as="button" class="logo">ПНКИ</Link>
-        <p class="ml-2 text-s text-blue-900 mt-3">Платформа начинающего крипто инвестора</p>
+        <p class="ml-2 text-xs text-blue-900 mt-3">Платформа начинающего крипто инвестора</p>
 </template>
 
 <script>

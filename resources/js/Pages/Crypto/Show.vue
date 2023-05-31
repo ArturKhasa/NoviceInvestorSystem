@@ -41,20 +41,20 @@
 
                     <!-- RANK -->
                     <div class="flex justify-between items-baseline w-full mt-5 border-gray-300 sm:order-2 sm:ml-1 sm:w-auto sm:mt-1 sm:border-none sm:justify-start">
-                        <p class="text-base sm:hidden">Market Cap Rank: </p>
+                        <p class="text-base sm:hidden">Ранг: </p>
                         <p class="text-lg font-black sm:bg-black sm:text-white sm:px-2 sm:ml-2 sm:text-base sm:rounded-md">{{ coin.rank }}#</p>
                     </div>
 
                      <!-- PRICE -->
                     <div class="flex justify-between items-baseline w-full border-gray-300 border-t-2 py-2 sm:order-3 sm:mr-5 sm:w-auto sm:ml-auto sm:border-none sm:py-0 sm:justify-start">
-                        <p class="text-xl">Price: </p>
+                        <p class="text-xl">Цена: </p>
                         <p class="text-lg up font-black sm:text-2xl sm:ml-4">${{ coin.price }}</p>
                     </div>
 
                     <!-- AMOUNT OWNED & WORTH -->
                     <div class="flex flex-wrap w-full border-gray-300 border-t-2 py-2 sm:order-5 sm:border-t-0 sm:py-0 sm:mt-4 sm:justify-between lg:border-b-2 lg:py-2">
                         <div class="flex items-baseline justify-between w-full sm:justify-start sm:w-auto">
-                            <p class="text-base">Amount: </p>
+                            <p class="text-base">В портфеле: </p>
                             <div class="ml-2">
                                 <div class="flex text-lg font-black sm:text-xl" v-if="coin.inPortfolio">
                                     <p>{{ coin.amount }}</p>
@@ -69,7 +69,7 @@
                         </div>
 
                         <div class="flex items-baseline justify-between w-full sm:justify-start sm:w-auto">
-                            <p class="text-base">Total: </p>
+                            <p class="text-base">Итого: </p>
                             <div class="flex ml-2">
                                 <div v-if="coin.inPortfolio">
                                     <p class="text-lg font-black sm:text-xl">${{ coin.total_worth }}</p>
